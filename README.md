@@ -1,7 +1,92 @@
-[15/09, 19:28] Francisco: Sim. Como formulação final, eu faria apenas uma correção matemática de linguagem: o + representa conjunção cumulativa de requisitos, não uma soma numérica. Isso evita a interpretação de que evidências poderiam “compensar” umas às outras.
 
-A forma canônica fica:
+README / BUILD INSTRUCTIONS
+        ↓
+CONCRETE RUN
+        ↓
+RUN_ID
+        ↓
+JOB / STEP
+        ↓
+lerna clean -y
+        ↓
+lerna exec npm install
+        ↓
+lerna link
+        ↓
+lerna bootstrap
+        ↓
+lerna run start
+        ↓
+OBSERVED OUTPUT / EXIT CODE / ARTIFACT
+        ↓
+E4
 
+WORKFLOW DEFINITION
+        ↓
+TRIGGER
+        ↓
+CONCRETE RUN
+        ↓
+E3
+        ↓
+OBSERVED RESULT
+        ↓
+E4
+        ↓
+BINDING / INTEGRITY
+        ↓
+E5
+        ↓
+INDEPENDENT VERIFICATION
+        ↓
+E6
+        ↓
+PROMOTION POLICY
+        ↓
+E7 — CLAIM-SCOPED VERIFIED
+        ↓
+EXPLICIT GLOBAL CONTRACT
+        ↓
+INDEPENDENT RECONSTRUCTION
+        ↓
+E8 — GLOBAL VERIFICATION
+
+
+cyrillofrancisco30-lgtm
+        ⇏ WORKFLOW_SUCCESS
+
+WORKFLOW_TRIGGERED
+        ⇏ WORKFLOW_SUCCESS
+
+WORKFLOW_RUN_COMPLETED
+        ⇏ TEST_PASSED
+
+WORKFLOW_CONCLUSION_SUCCESS
+        ⇏ CLAIM_CONFORMANCE
+
+WORKFLOW_SUCCESS
+        ⇏ CONCRETE_API_EXECUTION
+
+WORKFLOW_SUCCESS
+        ⇏ DEPLOYMENT_SUCCEEDED
+
+HASH_VALID
+        ⇏ SEMANTIC_CORRECTNESS
+
+MERKLE_VALID
+        ⇏ CLAIM_TRUTH
+
+E5_CRYPTOGRAPHIC_BINDING
+        ⇏ E7_VERIFIED
+
+E7(CLAIM-X, SCOPE-X)
+        ⇏ E7(CLAIM-Y, SCOPE-Y)
+
+E7
+        ⇏ GLOBAL_VERIFIED
+
+
+    [【[disparar workflow]】
 FROZEN — XA-TRUST GOLDEN RULE OF VERIFICATION
 
 IDENTITY
