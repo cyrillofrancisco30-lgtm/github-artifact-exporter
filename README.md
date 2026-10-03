@@ -1,3 +1,123 @@
+[15/09, 19:28] Francisco: Sim. Como formulação final, eu faria apenas uma correção matemática de linguagem: o + representa conjunção cumulativa de requisitos, não uma soma numérica. Isso evita a interpretação de que evidências poderiam “compensar” umas às outras.
+
+A forma canônica fica:
+
+FROZEN — XA-TRUST GOLDEN RULE OF VERIFICATION
+
+IDENTITY
+    ≠
+INTEGRITY
+    ≠
+SEMANTIC TRUTH
+
+
+E7 — CLAIM-SCOPED VERIFIED
+
+iff
+
+E3_EXECUTION_IDENTITY
+∧ E4_RESULT_EVIDENCE
+∧ E5_BINDING_INTEGRITY
+∧ E6_INDEPENDENT_VERIFICATION
+∧ APPLICABLE_PROMOTION_POLICY
+
+Com:
+
+E3 ∧ E4 ∧ E5 ∧ E6 ∧ POLICY
+        ↓
+       E7
+
+e não:
+
+E3 + E5
+        ↓
+      E7
+
+Axiomas de não-compensação
+
+E3_PRESENT ∧ E4_MISSING
+        → NO_PROMOTION
+
+E4_PRESENT ∧ E5_INVALID
+        → NO_PROMOTION
+
+E5_VALID ∧ E6_MISSING
+        → NO_PROMOTION
+
+E6_VALID ∧ POLICY_NOT_SATISFIED
+        → NO_PROMOTION
+
+Nenhuma evidência possui poder compensatório sobre uma condição obrigatória ausente.
+
+E a segunda proteção permanece:
+
+VERIFIED(CLAIM-X, SCOPE-X)
+        ↛
+VERIFIED(CLAIM-Y, SCOPE-Y)
+
+VERIFIED(CLAIM-X, SCOPE-X)
+        ↛
+GLOBAL_VERIFIED
+
+Portanto, o estado:
+
+E7 = VERIFIED
+
+significa precisamente:
+
+> Este claim específico satisfaz os requisitos de evidência, binding, integridade, verificação independente e política de promoção definidos para este escopo.
+
+
+
+Não significa que o sistema inteiro seja verdadeiro, seguro ou globalmente verificado.
+
+E o princípio epistemológico central pode ser congelado em uma única linha:
+
+VALIDITY OF THE EVIDENCE
+        ≠
+VALIDITY OF THE CLAIM
+
+A primeira é uma propriedade da cadeia de evidência.
+A segunda é uma conclusão claim-scoped, condicionada à verificação semântica aplicável.
+
+XA-TRUST — Golden Rule: FROZEN.
+[16/09, 02:31] Francisco: export XAI_API_KEY="xai-..."
+grok -p "Review this diff" --output-format json --always-approve
+[16/09, 02:31] Francisco: grok -p "Review the API changes" \
+  --permission-mode dontAsk \
+  --allow 'Bash(git *)' \
+  --allow 'Bash(gh *)' \
+  --allow 'Read' \
+  --allow 'Grep' \
+  --deny 'Bash(rm -rf *)' \
+  --sandbox strict
+[16/09, 02:43] Francisco: "integrity_binding": {
+  "canonicalization": "RFC8785-JCS",
+  "hash_algorithm": "SHA-256",
+  "evidence_hash": "<digest>",
+  "signature_algorithm": "Ed25519",
+  "signature": "<signature>",
+  "key_reference": "<key-registry-reference>",
+  "bound_fields": [
+    "claim_id",
+    "module_id",
+    "code_version",
+    "execution_id",
+    "turn_id",
+    "model",
+    "execution_context",
+    "tool_execution",
+    "zdr_context",
+    "request",
+    "response",
+    "timestamp",
+    "provenance"
+  ]
+}
+
+[[disparar workflow]]
+
+
 
 Para manter exatamente o mesmo rigor do modelo XAI/ZDR, o GitHub deve ficar assim:
 
