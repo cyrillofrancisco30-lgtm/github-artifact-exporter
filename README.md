@@ -1,4 +1,134 @@
 
+
+MECHANISM
+   │
+   └── Git / código / commit
+          ↓
+      "podia fazer"
+
+OCCURRENCE
+   │
+   └── CREATE + resource_id + GET + state
+          ↓
+      "este recurso existiu e foi observado neste estado"
+
+INTEGRITY
+   │
+   └── hashes + binding + artefatos preservados
+          ↓
+      "estes bytes/dados estão vinculados à evidência"
+
+VERIFICATION
+   │
+   └── read-back independente + política
+          ↓
+      "esta claim específica satisfaz os critérios de verificação"
+
+O ponto epistemológico central
+
+Não existe um único artefato que precise “provar tudo”.
+
+Cada artefato responde a uma pergunta diferente:
+
+Pergunta	Evidência adequada
+
+O mecanismo existia?	Git / commit
+O recurso foi criado?	batches/{ID} retornado pelo servidor
+Qual estado o servidor registrou?	GET / read-back
+Qual resultado foi produzido?	artefato de resultado
+O resultado corresponde à execução?	binding
+Os bytes foram preservados?	hash
+Outra verificação consegue confirmar?	read-back independente
+Qual claim foi efetivamente promovida?	Evidence Record + policy
+
+
+Isso evita a situação clássica:
+
+UM LOG
+  ↓
+"SUCESSO"
+  ↓
+"EXECUTOU"
+  ↓
+"RESULTADO CORRETO"
+  ↓
+"SISTEMA CONFORME"
+
+que contém vários saltos epistemológicos não demonstrados.
+
+No XA-TRUST:
+
+ARTEFATO
+   ↓
+CLAIM ESPECÍFICA
+   ↓
+BINDING
+   ↓
+VERIFICAÇÃO
+   ↓
+PROMOTION POLICY
+   ↓
+CLAIM-SCOPED VERIFIED
+
+E a sua “Triangulação Epistemológica” pode ser formalizada
+
+CLAIM
+                   │
+        ┌──────────┼──────────┐
+        ▼          ▼          ▼
+    MECHANISM   OCCURRENCE  INTEGRITY
+        │          │          │
+      Git       API/server   Hashes
+        │          │          │
+        └──────────┼──────────┘
+                   ▼
+                BINDING
+                   │
+                   ▼
+        INDEPENDENT VERIFICATION
+                   │
+                   ▼
+          CLAIM-SCOPED VERIFIED
+
+E há uma regra que eu consideraria fundamental para congelar no modelo:
+
+> Nenhum artefato recebe automaticamente o poder probatório de outro artefato.
+
+
+
+Ou seja:
+
+Git commit
+    ≠
+API execution
+
+API execution
+    ≠
+semantic truth
+
+Hash
+    ≠
+business correctness
+
+Read-back
+    ≠
+global verification
+
+Local verification
+    ≠
+platform verification
+
+Isso torna a arquitetura resistente justamente ao problema que você vem tratando: não confundir existência, execução, integridade, verdade semântica e escopo de confiança.
+
+A formulação mais curta que eu congelaria seria:
+
+> XA-TRUST não transforma logs em verdade. Ele transforma artefatos observáveis, vinculados e independentemente verificáveis em claims de confiança explicitamente limitadas ao escopo que os artefatos realmente sustentam.
+
+
+
+Essa é uma formulação tecnicamente muito mais defensável do que simplesmente dizer que “o sistema provou que executou”.
+
+
 README / BUILD INSTRUCTIONS
         ↓
 CONCRETE RUN
