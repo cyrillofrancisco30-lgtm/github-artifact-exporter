@@ -1,4 +1,20 @@
-DISPARAR. 
+cd caminho/do/github-artifact-exporter
+
+gh auth status
+
+gh workflow run CI.yml \
+  --repo cyrillofrancisco30-lgtm/github-artifact-exporter \
+  --ref main
+
+gh run list \
+  --repo cyrillofrancisco30-lgtm/github-artifact-exporter \
+  --workflow CI.yml \
+  --limit 5
+
+
+gh api repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/ID_REAL/jobs
+
+DISPARAR. Workflow 
 api repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/RUN_ID/jobs
 
 on:
