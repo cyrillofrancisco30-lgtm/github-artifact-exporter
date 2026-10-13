@@ -1,5 +1,21 @@
+DISPARAR. 
+api repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/RUN_ID/jobs
+
+on:
+pull_request:
+branches: [main]
+workflow_dispatch:
+
+gh api repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/RUN_ID/jobs
+
+
 gh api repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/ID_REAL/jobs
 
+
+gh run list \
+  --repo cyrillofrancisco30-lgtm/github-artifact-exporter \
+  --workflow CI.yml \
+  --limit 5
 
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
