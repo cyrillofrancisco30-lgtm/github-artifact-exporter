@@ -1,4 +1,23 @@
-# Logs
+gh auth status
+
+gh workflow run CI.yml \
+  --repo cyrillofrancisco30-lgtm/github-artifact-exporter \
+  --ref main
+
+gh run list \
+  --repo cyrillofrancisco30-lgtm/github-artifact-exporter \
+  --workflow CI.yml \
+  --limit 5
+
+gh api \
+  repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/RUN_ID
+
+
+gh api \
+  repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/RUN_ID/jobs
+
+gh api \
+  repos/cyrillofrancisco30-lgtm/github-artifact-exporter/actions/runs/RUN_ID/artifacts# Logs
 logs
 *.log
 npm-debug.log*
